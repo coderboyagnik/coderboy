@@ -1,0 +1,43 @@
+# contact_book.py
+
+contacts = {}
+
+def display_contacts():
+    if not contacts:
+        print("No contacts available.")
+    else:
+        for name, phone in contacts.items():
+            print(f"Name: {name}, Phone: {phone}")
+
+def add_contact():
+    name = input("Enter contact name: ")
+    phone = input("Enter contact phone: ")
+    contacts[name] = phone
+    print(f"Contact '{name}' added.")
+
+def delete_contact():
+    name = input("Enter contact name to delete: ")
+    if name in contacts:
+        del contacts[name]
+        print(f"Contact '{name}' deleted.")
+    else:
+        print("Contact not found.")
+
+while True:
+    print("\nContact Book:")
+    display_contacts()
+    print("\nOptions:")
+    print("1. Add a contact")
+    print("2. Delete a contact")
+    print("3. Exit")
+    
+    choice = input("Choose an option: ")
+    
+    if choice == '1':
+        add_contact()
+    elif choice == '2':
+        delete_contact()
+    elif choice == '3':
+        break
+    else:
+        print("Invalid choice, please choose again.")
